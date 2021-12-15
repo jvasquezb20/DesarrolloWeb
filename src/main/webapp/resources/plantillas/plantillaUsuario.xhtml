@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <h:outputStylesheet library="css" name="default.css"/>
+        <h:outputStylesheet library="css" name="cssLayout.css"/>
+        <title>Pulperia las esquinas</title>
+    </h:head>
+
+    <h:body>
+
+        <b:navBar fluid="true" brand="Pulperia las esquinas"
+            brand-href="/Proyecto-1/faces/principalUsuario.xhtml">
+            <b:navbarLinks pull="left">
+                <b:image library="images" name="logo.png" height="55px"/>
+            </b:navbarLinks>
+            <b:navbarLinks>
+                <b:dropMenu value="Productos" icon-awesome="fa-group">
+                    <b:navLink value="Listar" icon="fa-newspaper-o"
+                               href="/Proyecto-1/faces/producto/ListadoProductoUsuario.xhtml"/>
+                    
+                </b:dropMenu>
+                <b:dropMenu value="Contabilidad" icon-awesome="fa-group">
+                    <b:navLink value="Debo" href="/Proyecto-1/faces/cliente/DeboUsuarioVer.xhtml"/>
+                    
+                </b:dropMenu>
+            </b:navbarLinks>
+            
+            <b:navbarLinks pull="right" style-class="hidden-xs">
+                <b:dropMenu value="Configuracion" icon-awesome="fa-cog">
+                    <b:navLink value="Cerrar"
+                               href="/Proyecto-1/faces/index.xhtml"
+                               icon-awesome="fa-door-open"/>
+                    <b:navLink value="Perfil es ${usuarioController.idRol}" icon-awesome="fa-user" href="#"/>
+                    <b:navLink value="Temas">
+                        <h:form style="display:inline" styleClass="form-inline">
+                            <b:selectOneMenu value="#{temaController.tema}"
+                                             style="width: 180px;margin: 8px"
+                                             onchange="$('.theme-selector-button').click()">
+                                <f:selectItem itemValue="cerulean" itemLabel="cerulean"/>
+                                <f:selectItem itemValue="default" itemLabel="default"/>
+                                <f:selectItem itemValue="patternfly" itemLabel="patternfly"/>
+                                <f:selectItem itemValue="cosmo" itemLabel="cosmo"/>
+                                <f:selectItem itemValue="cyborg" itemLabel="cyborg"/>
+                                <f:selectItem itemValue="darkly" itemLabel="darkly"/>
+                                <f:selectItem itemValue="flatly" itemLabel="flatly"/>
+                                <f:selectItem itemValue="journal" itemLabel="journal"/>
+                                <f:selectItem itemValue="lumen" itemLabel="lumen"/>
+                                <f:selectItem itemValue="paper" itemLabel="paper"/>
+                                <f:selectItem itemValue="readable" itemLabel="readable"/>
+                            </b:selectOneMenu>
+                            <b:commandButton class="theme-selector-button" value="select" style="display:none"/>
+                        </h:form>
+                    </b:navLink>
+                </b:dropMenu>
+            </b:navbarLinks>
+        </b:navBar>
+        <div id="content" class="center_content">
+            <ui:insert name="content">Content</ui:insert>
+        </div>
+    </h:body>
+
+</html>

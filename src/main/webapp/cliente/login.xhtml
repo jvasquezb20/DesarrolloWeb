@@ -1,0 +1,99 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:p="http://primefaces.org/ui">
+      
+    <h:head>
+        <title>Crear Cliente</title>
+    </h:head>
+    <h:body>
+         <ui:composition template="./../resources/plantillas/plantilla.xhtml">
+            <ui:define name="content">
+                <h:form id="CrearLoginForm">
+                    <b:panel title="Cliente" look="primary">
+                        
+                        
+                        <b:row tooltip="El usuario de login no se modifica">
+                            <b:column medium-screen="2">
+                                <h:outputLabel value="idUsuario" for="idUsuario"/>
+                            </b:column>
+                            <b:column medium-screen="4">
+                                <b:inputText placeholder="idUsuario" id="idUsuario"
+                                             required="true"
+                                             value="#{usuarioController.idUsuario}"/>
+                            </b:column>
+                            <b:column medium-screen="6" style-class="message">
+                                <b:message for="idUsuario"/>
+                            </b:column>
+                        </b:row>
+                        
+                        <b:row>
+                            <b:column medium-screen="2">
+                                <h:outputLabel value="Password" for="pass"/>
+                            </b:column>
+                            <b:column medium-screen="4">
+                                <b:inputText placeholder="Password" id="pass"
+                                             required="true"
+                                             value="#{usuarioController.pwUsuario}"/>
+                            </b:column>
+                            <b:column medium-screen="6" style-class="message">
+                                <b:message for="pass"/>
+                            </b:column>
+                        </b:row>
+                        
+                         <b:row>
+                            <b:column medium-screen="2">
+                                <h:outputLabel value="Nombre" for="nombre"/>
+                            </b:column>
+                            <b:column medium-screen="4">
+                                <b:inputText placeholder="Nombre" id="nombre"
+                                             required="true"
+                                             value="#{usuarioController.nombreUsuario}"/>
+                            </b:column>
+                            <b:column medium-screen="6" style-class="message">
+                                <b:message for="apellidos"/>
+                            </b:column>
+                             
+                        </b:row>
+                        
+                          <b:row>
+                            <b:column medium-screen="2">
+                                <h:outputLabel value="Rol" for="rol"/>
+                            </b:column>
+                            <b:column medium-screen="4">
+                                <b:inputText placeholder="Rol" id="rol"
+                                             required="true"
+                                             value="#{usuarioController.idRol}"/>
+                            </b:column>
+                            <b:column medium-screen="6" style-class="message">
+                                <b:message for="correo"/>
+                            </b:column>
+                             
+                        </b:row>
+                        
+                        
+                        <b:row>
+                            <b:column medium-screen="2"/>
+                            <b:column medium-screen="6">
+                                
+                                <b:commandButton value="Crear"
+                                                 action="#{usuarioController.inserta()}"
+                                                 look="danger"
+                                                 style="width: 33%"/>
+                                
+                            </b:column>
+                            
+                        </b:row>
+                        
+                    </b:panel>
+                    
+                </h:form>  
+                
+             </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

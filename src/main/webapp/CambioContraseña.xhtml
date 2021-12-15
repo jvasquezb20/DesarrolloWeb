@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <title>Cambiar Contraseña</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="#{usuarioController.Plantilla(usuarioController.idRol)}">
+            <ui:define name="content">
+                <h:form id="CambioContrasenaForm">
+                    <b:container fluid="true">
+                        <b:panel title="Cambio de Contraseña" look="primary">
+                            <b:row>
+                                <b:column medium-screen="2">
+                                    <h:outputLabel value="Contraseña Actual" for="contraAct"/>
+                                </b:column>
+                                <b:column medium-screen="4">
+                                    <b:inputText placeholder="Contraseña Actual" id="contraAct"
+                                                 required="true"
+                                                 type="Password"
+                                                 value="#{usuarioController.pwUsuario}"/>
+                                </b:column>
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="contraAct"/>
+                                </b:column>
+                            </b:row>
+
+                            <b:row>
+                                <b:column medium-screen="2">
+                                    <h:outputLabel value="Nueva Contraseña" for="newPass"/>
+                                </b:column>
+                                <b:column medium-screen="4">
+                                    <b:inputText placeholder="Nueva Contraseña" id="newPass"
+                                                 required="true"
+                                                 value="#{usuarioController.npass}"/>
+                                </b:column>
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="pass"/>
+                                </b:column>
+                            </b:row>
+
+                            <b:row>
+                                <b:column medium-screen="2">
+                                    <h:outputLabel value="Confirmar la contraseña" for="confpass"/>
+                                </b:column>
+                                <b:column medium-screen="4">
+                                    <b:inputText placeholder="Confirmar la contraseña" id="confpass"
+                                                 required="true"
+                                                 value="#{usuarioController.cpass}"/>
+                                </b:column>
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="confpass"/>
+                                </b:column>
+
+                            </b:row>
+
+                            <b:row>
+                                <b:column medium-screen="2"/>
+                                <b:column medium-screen="6">
+
+                                    <b:commandButton value="Cambiar contraseña"
+                                                     action="#{usuarioController.modifica()}"
+                                                     look="danger"
+                                                     style="width: 33%"/>
+
+                                </b:column>
+
+                            </b:row>
+
+                        </b:panel>
+                    </b:container>
+                </h:form>  
+
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+
